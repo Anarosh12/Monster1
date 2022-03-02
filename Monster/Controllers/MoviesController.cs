@@ -1,5 +1,7 @@
-﻿using Monster.Models;
+﻿using System;
+using Monster.Models;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 
 namespace Monster.Controllers
 {
@@ -24,6 +26,22 @@ namespace Monster.Controllers
         public ActionResult Edit(int movieId)
         {
             return Content("movieId=" +movieId );
+        }
+
+        //movies
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (pageIndex.HasValue)
+            {
+                pageIndex = 1;
+            }
+
+            if (string.IsNullOrWhiteSpace(sortBy))
+            {
+                sortBy = "Name";
+            }
+
+            return Content(string.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
         }
     }
    
