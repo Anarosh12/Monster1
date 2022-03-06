@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Infrastructure.MappingViews;
 using Monster.Models;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
@@ -28,10 +29,10 @@ namespace Monster.Controllers
             return Content("movieId=" +movieId );
         }
 
-        //movies
+        // GET: Movies
         public ActionResult Index(int? pageIndex, string sortBy)
         {
-            if (pageIndex.HasValue)
+            if (!pageIndex.HasValue)
             {
                 pageIndex = 1;
             }
@@ -41,7 +42,7 @@ namespace Monster.Controllers
                 sortBy = "Name";
             }
 
-            return Content(string.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+            return Content(string.Format("pageIndex={0} & sortBy={1}", pageIndex, sortBy));
         }
     }
    
