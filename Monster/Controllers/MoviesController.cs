@@ -1,22 +1,36 @@
-﻿using System;
-using System.Data.Entity.Infrastructure.MappingViews;
-using Monster.Models;
+﻿using Monster.Models;
 using System.Web.Mvc;
-using Microsoft.Ajax.Utilities;
 
 namespace Monster.Controllers
 {
     public class MoviesController : Controller
     {
         // GET: Movies/Random
+        //public ActionResult Random()
+        //{
+        //    var movie = new Movie()
+        //    {
+        //        Name = "Red Dawn !!"
+
+        //    };
+
+        //    return View(movie);
+        //    //return Content("Hello World");
+        //    //return HttpNotFound();
+        //    //return new EmptyResult();
+        //    //return RedirectToAction("index", "Home", new { page = 1, sortBy = "name" });
+        //}
+
+        // View Data Dictinary
         public ActionResult Random()
         {
             var movie = new Movie()
             {
                 Name = "Red Dawn !!"
-                
             };
-            return View(movie);
+
+            ViewData["movie"]=movie;
+            return View();
             //return Content("Hello World");
             //return HttpNotFound();
             //return new EmptyResult();
@@ -26,7 +40,7 @@ namespace Monster.Controllers
         // GET: Movies/Edit/1
         public ActionResult Edit(int movieId)
         {
-            return Content("movieId=" +movieId );
+            return Content("movieId=" + movieId);
         }
 
         // GET: Movies
@@ -44,6 +58,18 @@ namespace Monster.Controllers
 
             return Content(string.Format("pageIndex={0} & sortBy={1}", pageIndex, sortBy));
         }
+
+
+        [Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]
+
+        // GET: Movies/released/year/month
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
+
+
+
     }
-   
+
 }
