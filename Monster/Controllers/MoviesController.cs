@@ -1,41 +1,55 @@
-﻿using Monster.Models;
+﻿using System;
+using System.Collections.Generic;
+using Monster.Models;
 using System.Web.Mvc;
+using Monster.ViewModels;
 
 namespace Monster.Controllers
 {
     public class MoviesController : Controller
     {
         // GET: Movies/Random
-        //public ActionResult Random()
-        //{
-        //    var movie = new Movie()
-        //    {
-        //        Name = "Red Dawn !!"
-
-        //    };
-
-        //    return View(movie);
-        //    //return Content("Hello World");
-        //    //return HttpNotFound();
-        //    //return new EmptyResult();
-        //    //return RedirectToAction("index", "Home", new { page = 1, sortBy = "name" });
-        //}
-
-        // View Data Dictinary
         public ActionResult Random()
         {
             var movie = new Movie()
             {
                 Name = "Red Dawn !!"
+
             };
 
-            ViewData["movie"]=movie;
-            return View();
+            var customers = new List<Customer>
+            {
+                new Customer {Name = "Customer 1"},
+                new Customer {Name = "Customer 2"}
+            };
+
+            var viewModel = new RandomMovieViewModel()
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
             //return Content("Hello World");
             //return HttpNotFound();
             //return new EmptyResult();
             //return RedirectToAction("index", "Home", new { page = 1, sortBy = "name" });
         }
+
+        // View Data Dictionary
+        //public ActionResult Random()
+        ////{
+        ////    var movie = new Movie()
+        //    {
+        //        Name = "Red Dawn !!"
+        //    };
+
+        //    return View();
+        //    //return Content("Hello World");
+        //    //return HttpNotFound();
+        //    //return new EmptyResult();
+        //    //return RedirectToAction("index", "Home", new { page = 1, sortBy = "name" });
+        //}
 
         // GET: Movies/Edit/1
         public ActionResult Edit(int movieId)
