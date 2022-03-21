@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Monster.Models;
 using System.Web.Mvc;
 using Monster.ViewModels;

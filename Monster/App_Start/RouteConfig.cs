@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Monster
@@ -20,6 +16,7 @@ namespace Monster
             //    "movies/released/{year}/{month}",
             //    new {controller ="Movies", action= "ByReleaseDate"},
             //    new {year = @"2015|2016", month = @"\d{2}"}
+            //    isFavorite=false
             //);
             routes.MapRoute(
                 name: "Default",

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Monster.Models
+﻿namespace Monster.Models
 {
     public class Customer
     {
