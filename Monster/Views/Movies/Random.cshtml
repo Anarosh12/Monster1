@@ -1,6 +1,4 @@
-﻿
-@using Monster.Models
-@model Monster.ViewModels.RandomMovieViewModel
+﻿@model Monster.ViewModels.RandomMovieViewModel
 
 
 @{
@@ -12,7 +10,9 @@
     var className = Model.Customers.Count > 5 ? "popular" : null;
 }
 
-<h2 class="@className">@Model.Movie.Name</h2><br />
+<h2 class="@className"> @Model.Movie.Name </h2 >
+
+<br />
 @if (Model.Customers.Count == 0)
 {
     <text>No one rented this movie before.</text>
@@ -23,7 +23,7 @@ else
     <ul>
         @foreach (var custom in Model.Customers)
         {
-        <li>@custom.Name</li>
+            <li>@custom.Name</li>
         }
     </ul>
 }
